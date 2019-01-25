@@ -23,7 +23,7 @@ Three steps are recommended for config
 - browser, add register code to your entry.js
 - development environment, add npm script for a easy access
 
-### webpack config
+### Step.0 webpack config
 ``` javascript
 {
   plugins: [
@@ -47,13 +47,13 @@ With zero options
 }
 ```
 
-### register the service worker for browser
+### Step1. register the service worker for browser
 ``` javascript
 let register = require('cors-proxy-webpack-plugin/dist/runtime');
 register();
 ```
 
-### set up the proxy
+### Step2. set up the proxy
 
 #### with cli
 ``` bash
@@ -75,5 +75,8 @@ It could be used together with `webpack-dev-server` with the help of npm package
 ```
 
 ## Config
+`CorsProxyWebpackPlugin(options)`
 
-
+- `host` (default `"127.0.0.1"`) type `string`, the hostname of the cros proxy for forwarding requests hijacked by the service worker
+- `port` (default `8888`) type `number`, tcp port number, manually specify when a conflict happens
+- `filename` (default `cors-sw.js`) type `string`, could be a filepath like `xxx/foo.js`, no need to change this until a name confilct happens
