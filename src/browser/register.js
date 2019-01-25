@@ -1,14 +1,21 @@
 let sw_paths = CorsProxyWebpackPluginTemp.paths;
 
-let webpack_config_no_plugin_error = () => {
-  throw new Error("cors-proxy-webpack-plugin: if you could see this error, it means your webpack might not be rightly configured with this plugin");
-}
+let error = message => () => {
+  console.error(`cors-proxy-webpack-plugin:  if you could see this error, it means ${message}`)
+};
 
 function register() {
   if (!sw_paths.length) {
-    webpack_config_no_plugin_error();
+    error("your webpack might not be rightly configured with this plugin.");
   }
-  !!navigator.serviceWorker && sw_paths.map(path => navigator.serviceWorker.register(path));
+  if (!!navigator.serviceWorker) {
+    sw_paths.map(path => navigator.serviceWorker.register(path).catch(e => {
+      console.error(e);
+      error("service worker registration failed.");
+    }));
+  } else {
+    error('service workers are not supported.');
+  }
   delete window.CorsProxyWebpackPluginTemp;
 }
 

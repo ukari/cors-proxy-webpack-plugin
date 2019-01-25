@@ -62,3 +62,6 @@ typings/
 
 # emacs cache
 *~
+
+# tern
+.tern-port

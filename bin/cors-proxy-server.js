@@ -1,9 +1,6 @@
 let http = require('http');
 let fetch = require('node-fetch');
-let {name} = require('../package.json');
-let weblog = require('webpack-log');
-
-const log = weblog({name: name.split("-").reduce((acc, cur) => acc + cur[0], "")});
+let {logger} = require('./util');
 
 let read = req => new Promise((resolve, reject) => {
   let data = "";
@@ -65,6 +62,6 @@ let proxy = http.createServer(async (req, res) => {
 });
 
 let launch = ({port, host}) =>
-    proxy.listen(port, host, () => log.info(`cors proxy launch on ${host}:${port}`));
+    proxy.listen(port, host, () => logger.info(`cors proxy launch on ${host}:${port}`));
 
 module.exports = {launch};

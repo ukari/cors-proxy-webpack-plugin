@@ -5,11 +5,13 @@ let program = require('commander');
 let {version} = require('../package.json');
 let {CorsProxyWebpackPlugin} = require('../dist/main');
 let path = require('path');
+let {logger} = require('./util');
 
 let launcher = (filename) => {
   let config = require(path.join(process.cwd(), filename));
-  config.plugins.filter(plugin => plugin instanceof CorsProxyWebpackPlugin)
-    .map(plugin => launch(plugin.options));
+  let instances = config.plugins.filter(plugin => plugin instanceof CorsProxyWebpackPlugin);
+  logger.info("the number of detected instances of CorsProxyWebpackPlugin is: " + instances.length);
+  instances.map(plugin => launch(plugin.options));
 };
 
 program

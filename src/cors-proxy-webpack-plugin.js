@@ -11,7 +11,7 @@ const cors_sw = async urlreplace => `
 `.trim();
 
 class CorsProxyWebpackPlugin {
-  constructor(options) {
+  constructor(options = {}) {
     this.options = ({...{
       port: 8888,
       host: '127.0.0.1',
