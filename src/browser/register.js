@@ -1,3 +1,9 @@
+try {
+  CorsProxyWebpackPluginTemp;
+} catch(e) {
+  CorsProxyWebpackPluginTemp = {paths: []};
+}
+
 let sw_paths = CorsProxyWebpackPluginTemp.paths;
 
 let error = message => () => {
