@@ -6,7 +6,7 @@ try {
 
 let sw_paths = CorsProxyWebpackPluginTemp.paths;
 
-let error = message => () => {
+let error = message => {
   console.error(`cors-proxy-webpack-plugin:  if you could see this error, it means ${message}`)
 };
 
