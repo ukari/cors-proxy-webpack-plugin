@@ -1,6 +1,6 @@
 {
   "name": "cors-proxy-webpack-plugin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a simple cors proxy solution for cross-domain apis in the development environment",
   "main": "dist/main.js",
   "files": [
