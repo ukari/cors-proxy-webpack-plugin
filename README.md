@@ -63,7 +63,7 @@ node_modules/.bin/cors-proxy-server --config your.webpack.config.js
 #### with npm scripts
 ``` javascript
 {
-  "cors-proxy": "cors-proxy-server --config your,webpack.config.js"
+  "cors-proxy": "cors-proxy-server --config your.webpack.config.js"
 }
 ```
 
@@ -79,4 +79,4 @@ It could be used together with `webpack-dev-server` with the help of npm package
 
 - `host` (default `"127.0.0.1"`) type `string`, the hostname of the cros proxy for forwarding requests hijacked by the service worker
 - `port` (default `8888`) type `number`, tcp port number, manually specify when a conflict happens
-- `filename` (default `cors-sw.js`) type `string`, could be a filepath like `xxx/foo.js`, no need to change this until a name confilct happens
+- `filename` (default `"cors-sw.js"`) type `string`, could be a filepath like `xxx/foo.js`, no need to change this until a name confilct happens
