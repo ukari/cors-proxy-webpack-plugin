@@ -8,7 +8,7 @@ let path = require('path');
 let {logger} = require('./util');
 
 let launcher = (filename) => {
-  let config = require(path.join(process.cwd(), filename));
+  let config = require(path.resolve(process.cwd(), filename));
   let instances = config.plugins.filter(plugin => plugin instanceof CorsProxyWebpackPlugin);
   logger.info("the number of detected instances of CorsProxyWebpackPlugin is: " + instances.length);
   instances.map(plugin => launch(plugin.options));

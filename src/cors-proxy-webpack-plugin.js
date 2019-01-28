@@ -7,7 +7,7 @@ const register_path = path.resolve(__dirname, "runtime.js");
 const loader_path = path.resolve(__dirname, "loader.js");
 
 const cors_sw = async urlreplace => `
-(function(){var cors_proxy="${urlreplace}";var global={};${await readAsync(path.join(__dirname, 'cors-sw.js'))};global["${pluginName}"]()})()
+(function(){var cors_proxy="${urlreplace}";var global={};${await readAsync(path.resolve(__dirname, 'cors-sw.js'))};global["${pluginName}"]()})()
 `.trim();
 
 class CorsProxyWebpackPlugin {
